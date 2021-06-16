@@ -5,6 +5,7 @@ const initialState = {
     isOneClicked : false,
     isTwoClicked : false,
     isThreeClicked : false,
+    isSubClicked : undefined
 }
 
 const rootReducer = (state = initialState,action) => {
@@ -25,6 +26,12 @@ const rootReducer = (state = initialState,action) => {
             return {
                 ...state, 
                 isThreeClicked: state.isThreeClicked = true,
+            }
+        } 
+        case 'submitclick':{
+            return {
+                ...state, 
+                isSubClicked: state.isSubClicked = action.payload,
             }
         } 
         default:
