@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    
+    button{
+        padding: 0px 1rem;
+        width: auto;
+        height: 10vh;
+        font-size: 1.75rem;
+        color: white;
+        background: red;
+        cursor: pointer;
+    }
+}
