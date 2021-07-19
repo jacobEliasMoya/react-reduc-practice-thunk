@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Buttonarea from './Buttonarea';
-import Inputarea from './Inputarea';
+import App from './App';
+import {store} from './app/store.js'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Inputarea/>
+    <App
+      state={store.getState()}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );
