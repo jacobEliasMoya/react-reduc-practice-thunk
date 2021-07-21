@@ -1,7 +1,4 @@
-import { createStore, combineReducers } from "redux";
+import { createStore } from "redux";
+import { enterTextReducer } from "./features/inputStringSlice";
 
-export const rootReducer = combineReducers({
-
-})
-
-export const store = createStore(rootReducer);
+export const store = createStore(enterTextReducer);
