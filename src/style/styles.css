@@ -18,7 +18,7 @@ body #root {
 body #root .App {
   min-height: 100vh;
   min-width: 100vw;
-  background: linear-gradient(45deg, #36010a, #10427c);
+  background: salmon;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,7 +47,7 @@ body #root .App .container {
           flex-direction: column;
   min-width: 90vw;
   min-height: 80vh;
-  background-color: rgba(3, 119, 139, 0.493);
+  background-color: #03778b;
   color: white;
   border-radius: 1rem;
   -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.658);
@@ -72,6 +72,16 @@ body #root .App .container .top {
   margin-bottom: 2vw;
   font-size: 3rem;
   text-shadow: 0 0 .5rem white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #root .App .container .top .inputblinker {
+  -webkit-transform: translate(50%, -9%) !important;
+          transform: translate(50%, -9%) !important;
+  -webkit-animation: blinker 1s infinite forwards;
+          animation: blinker 1s infinite forwards;
 }
 
 body #root .App .container .bottom, body #root .App .container .controller {
@@ -138,5 +148,29 @@ body #root .App .container .controller {
 
 body #root .App .container .controller span button {
   width: 100%;
+}
+
+@-webkit-keyframes blinker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

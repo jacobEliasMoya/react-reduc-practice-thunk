@@ -1,31 +1,35 @@
 import './style/styles.css';
-import { clearSearchTerm, enterSearchTerm, insertSpace, backSpaceText } from './app/features/inputStringSlice';
-import { store } from './app/store';
+import { clearSearchTerm, enterSearchTerm, insertSpace, backSpaceText, searchText, selectLetters, selectWords } from './app/features/inputStringSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
 
+  // use selector is awesome! 
+  const letters = useSelector(selectLetters);
+  const words = useSelector(selectWords);
+  // use dispatch is pretty cool too!
+  const dispatch = useDispatch();
+  let keyNum=0;
+
   const handleLetterClick = (e) =>{
-    store.dispatch(enterSearchTerm(e.target.innerHTML));
-    console.log(store.getState())
+    dispatch(enterSearchTerm(e.target.innerHTML));
   }
 
-  const handleClearClick = (e) =>{
-    store.dispatch(clearSearchTerm());
+  const handleClearClick = () =>{
+    dispatch(clearSearchTerm());
   }
 
   const handleSpaceClick = () =>{
-    store.dispatch(insertSpace());
+    dispatch(insertSpace());
   }
 
   const handleBackspace = () =>{
-    store.dispatch(backSpaceText());
-    console.log(store.getState())
-
+    dispatch(backSpaceText());
   }
-
  
-
-  let keyNum=0;
+  const handleSearch  = () =>{
+    dispatch(searchText());
+  }
 
   const letArray1 = ['q','w','e','r','t','y','u','i','o','p'];
   const letArray2 = ['a','s','d','f','g','h','j','k','l'];
@@ -39,7 +43,8 @@ function App() {
     <div className="App">
       <div className='container'>
         <div className='top'>
-          {store.getState()}
+          {letters}<span className='inputblinker'>|</span><br/>
+          {words}
         </div>
         <div className='bottom'>
           <span>
@@ -57,6 +62,7 @@ function App() {
               <button onClick={handleSpaceClick} className="space">SPACE</button>
               <button onClick={handleClearClick} className="clear">CLEAR</button>
               <button onClick={handleBackspace} className="backspace">BACKSPACE</button>
+              <button onClick={handleSearch} className="enter">ENTER</button>
           </span>
           </div>
       </div>
@@ -65,5 +71,4 @@ function App() {
   );
 }
 
-store.subscribe(App)
 export default App;

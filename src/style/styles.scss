@@ -13,7 +13,7 @@ body{
         .App{
             min-height: 100vh;
             min-width: 100vw;
-            background: linear-gradient(45deg, rgb(54, 1, 10),rgb(16, 66, 124));
+            background:salmon;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -25,7 +25,7 @@ body{
                 flex-direction: column;
                 min-width: 90vw;
                 min-height: 80vh;
-                background-color: rgba(3, 119, 139, 0.493);
+                background-color: rgb(3, 119, 139);
                 color: white;
                 border-radius: 1rem;
                 box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.658);
@@ -45,6 +45,11 @@ body{
                     margin-bottom: 2vw;
                     font-size: 3rem;
                     text-shadow: 0 0 .5rem white;
+                    display: flex;
+                    .inputblinker{
+                        transform: translate(50%,-9%) !important;
+                        animation: blinker 1s infinite forwards;
+                    }
                 }
                 .bottom,.controller{
                     box-shadow:none;
@@ -95,4 +100,10 @@ body{
             }
         }
     }
+}
+
+@keyframes blinker {
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
 }
