@@ -1,4 +1,8 @@
-import { createStore } from "redux";
-import { enterTextReducer } from "./features/inputStringSlice";
+import  favoriteButton  from "./features/inputStringSlice";
+import  {configureStore}  from "@reduxjs/toolkit";
 
-export const store = createStore(enterTextReducer);
+export default configureStore ({
+    reducer: {
+        favorite: favoriteButton
+    }
+})
